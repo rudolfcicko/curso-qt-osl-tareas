@@ -1,7 +1,7 @@
 Cuarto proyecto - Gestor de tareas
 ----
 
-En esta ocasión veremos algunas de las funcionalides que provee QT5 para el acceso a bases de datos SQL. Esta práctica permitirá reforzar los conocimientos adquiridos hasta ahora al tiempo que experimentamos con las características multimedia de Qt5.
+En esta ocasión veremos algunas de las funcionalides que provee QT5 para el acceso a bases de datos SQL. Esta práctica permitirá reforzar los conocimientos adquiridos hasta ahora al tiempo que experimentamos con SQL.
 
 Como mínimo, implementaremos las siguientes funcionalidades:
 
@@ -25,10 +25,10 @@ Tareas propuestas para realizar en clase
 Se propone realizar las siguientes tareas:
 
 * Implementar gestor de categorías
-* Añadir la posibiliad de asignar categorías a las tareas
-* Dar la posibilidad de ver solo las tareas de una categoria
+* Añadir la posibilidad de asignar categorías a las tareas
+* Dar la posibilidad de ver solo las tareas de una categoría
 * Implementar gestor de etiquetas
-* Añadir la posibiliad de asignar etiquetas a las tareas
+* Añadir la posibilidad de asignar etiquetas a las tareas
 * Dar la posibilidad de ver solo las tareas que tengan una o varias etiquetas
 * Añadir la posibilidad de agregar una descripción a las categorías
 
