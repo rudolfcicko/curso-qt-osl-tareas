@@ -1,4 +1,4 @@
-Tercer proyecto - Gestor de tareas
+Cuarto proyecto - Gestor de tareas
 ----
 
 En esta ocasión veremos algunas de las funcionalides que provee QT5 para el acceso a bases de datos SQL. Esta práctica permitirá reforzar los conocimientos adquiridos hasta ahora al tiempo que experimentamos con las características multimedia de Qt5.
