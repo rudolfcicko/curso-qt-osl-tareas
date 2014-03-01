@@ -42,15 +42,17 @@ MainWindow::MainWindow(QWidget *parent) :
                            "FROM categorias;");
 
     while (q.next()) {
+        //Añadimos la categoria al combo
         ui->comboCategoria->addItem(GetField(q,"name").toString());
 
+        //Añadimos la categoria a la tabla de categorias
         int rowNumber = ui->tblCateg->rowCount();
         ui->tblCateg->insertRow(rowNumber);
         QTableWidgetItem* item = new QTableWidgetItem(GetField(q, "name").toString());
         ui->tblCateg->setItem(rowNumber, 0, item);
-
-        ui->tblCateg->setSortingEnabled(true);
     }
+    //Activamos el sorting en la tabla de categorias
+    ui->tblCateg->setSortingEnabled(true);
 
 }
 
