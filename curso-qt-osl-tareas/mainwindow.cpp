@@ -96,19 +96,19 @@ void MainWindow::onTareasCellChanged(int row, int column)
 
     if (ui->tblTareas->item(row, 0)->data(Qt::UserRole).isNull()) {
         query = db_.exec("INSERT INTO tareas (name, descripcion, date, done, id_categ) "
-                 "VALUES ("+QString("\"%1\",\"%2\",\"%3\",\"%4\",\"%5\");" )\
+                 "VALUES ("+QString("'%1','%2','%3','%4','%5');" )\
                  .arg(ui->tblTareas->item(row, 0)->text())\
+                 .arg(ui->txtTareaDescr->toPlainText())\
                  .arg(ui->tblTareas->item(row, 1)->text())\
-                 .arg(ui->tblTareas->item(row, 2)->text())\
                  .arg(checked)\
                  .arg(ui->comboCategoria->currentData().toInt()));
         ui->tblTareas->item(row, 0)->setData(Qt::UserRole, query.lastInsertId());
     } else {
         query = db_.exec("UPDATE tareas "
-                 "SET "+QString("name=\"%1\",descripcion=\"%2\",date=\"%3\",done=\"%4\",id_categ=\"%5\" " )\
+                 "SET "+QString("name='%1',descripcion='%2',date='%3',done='%4',id_categ='%5' " )\
                  .arg(ui->tblTareas->item(row, 0)->text())\
+                 .arg(ui->txtTareaDescr->toPlainText())\
                  .arg(ui->tblTareas->item(row, 1)->text())\
-                 .arg(ui->tblTareas->item(row, 2)->text())\
                  .arg(checked)\
                  .arg(ui->comboCategoria->currentData().toInt()) +
                  "WHERE id = " + ui->tblTareas->item(row, 0)->data(Qt::UserRole).toString() + ";");
