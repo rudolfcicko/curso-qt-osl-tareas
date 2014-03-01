@@ -2,20 +2,26 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
-#include <QSqlDatabase>
 #include "dbconnection.h"
+
+namespace Ui {
+class MainWindow;
+}
 
 class MainWindow : public QMainWindow
 {
     Q_OBJECT
 
 public:
-    MainWindow(QWidget *parent = 0);
+    explicit MainWindow(QWidget *parent = 0);
     ~MainWindow();
 
-private:
-    QSqlDatabase db_;
+private slots:
+    void onAddTarea();
 
+private:
+    Ui::MainWindow *ui;
+    QSqlDatabase db_;
 };
 
 #endif // MAINWINDOW_H
