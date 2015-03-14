@@ -19,6 +19,7 @@ public:
 
 private slots:
     void onAddTarea();
+    void onRemoveTarea();
     void onTareasCellChanged(int row, int column);
     void onLoadTareas();
 

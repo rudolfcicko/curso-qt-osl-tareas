@@ -1,4 +1,5 @@
 #include "mainwindow.h"
+#include "creadortareas.h"
 #include "ui_mainwindow.h"
 
 MainWindow::MainWindow(QWidget *parent) :
@@ -6,6 +7,8 @@ MainWindow::MainWindow(QWidget *parent) :
     ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
+
+    ui->actionNuevaTarea->setShortcut(QKeySequence(Qt::CTRL + Qt::Key_N));
 
     //Setup database
     ConecToDb(db_, "tareas");
@@ -36,6 +39,7 @@ MainWindow::MainWindow(QWidget *parent) :
               ");");
 
     connect(ui->actionNuevaTarea, SIGNAL(triggered()), this, SLOT(onAddTarea()));
+    connect(ui->actionEliminar, SIGNAL(triggered()), this ,SLOT(onRemoveTarea()));
     connect(ui->tblTareas, SIGNAL(cellChanged(int,int)), this, SLOT(onTareasCellChanged(int,int)));
     connect(ui->comboCategoria, SIGNAL(currentIndexChanged(int)), this, SLOT(onLoadTareas()));
 
@@ -70,6 +74,12 @@ void MainWindow::onAddTarea()
 {
     addingTarea_ = true;
 
+    CreadorTareas * ct = new CreadorTareas;
+
+
+    ct->show();
+
+
     ui->tblTareas->insertRow(ui->tblTareas->rowCount());
     QTableWidgetItem* item = new QTableWidgetItem("");
     item->setFlags(Qt::ItemIsUserCheckable | Qt::ItemIsEnabled);
@@ -81,6 +91,14 @@ void MainWindow::onAddTarea()
 
 
     addingTarea_ = false;
+}
+
+void MainWindow::onRemoveTarea()
+{
+    //Borrar todos las tareas seleccionadas.
+    while(ui->tblTareas->selectedItems().size() > 0)
+        ui->tblTareas->removeRow(ui->tblTareas->currentRow());
+
 }
 
 void MainWindow::onTareasCellChanged(int row, int column)
