@@ -99,7 +99,7 @@
           <string>Categorias</string>
          </attribute>
          <layout class="QGridLayout" name="gridLayout_4">
-          <item row="0" column="0">
+          <item row="0" column="1">
            <layout class="QGridLayout" name="gridLayout_2">
             <item row="0" column="0">
              <widget class="QTableWidget" name="tblCateg">
@@ -112,6 +112,12 @@
             </item>
             <item row="1" column="0">
              <widget class="QTextEdit" name="txtCategDescr">
+              <property name="sizePolicy">
+               <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+                <horstretch>0</horstretch>
+                <verstretch>0</verstretch>
+               </sizepolicy>
+              </property>
               <property name="maximumSize">
                <size>
                 <width>16777215</width>
@@ -164,20 +170,21 @@
      <string>Tareas</string>
     </property>
     <addaction name="actionNuevaTarea"/>
-    <addaction name="actionEliminar"/>
+    <addaction name="actionEliminarTarea"/>
    </widget>
    <widget class="QMenu" name="menuCategorias">
     <property name="title">
      <string>Categorias</string>
     </property>
     <addaction name="actionNuevaCateg"/>
+    <addaction name="actionEliminarCategoria"/>
    </widget>
    <widget class="QMenu" name="menuEtiquetas">
     <property name="title">
      <string>Etiquetas</string>
     </property>
     <addaction name="actionNuevaEtiq"/>
-    <addaction name="actionEliminar_2"/>
+    <addaction name="actionEliminarEtiqueta"/>
    </widget>
    <widget class="QMenu" name="menuArchivo">
     <property name="title">
@@ -211,12 +218,17 @@
     <string>Salir</string>
    </property>
   </action>
-  <action name="actionEliminar">
+  <action name="actionEliminarTarea">
    <property name="text">
     <string>Eliminar</string>
    </property>
   </action>
-  <action name="actionEliminar_2">
+  <action name="actionEliminarEtiqueta">
+   <property name="text">
+    <string>Eliminar</string>
+   </property>
+  </action>
+  <action name="actionEliminarCategoria">
    <property name="text">
     <string>Eliminar</string>
    </property>

@@ -13,14 +13,11 @@ TEMPLATE = app
 
 
 SOURCES += main.cpp \
-    mainwindow.cpp \
-    creadortareas.cpp
+    mainwindow.cpp
 
 HEADERS  += \
     dbconnection.h \
-    mainwindow.h \
-    creadortareas.h
+    mainwindow.h
 
 FORMS += \
-    mainwindow.ui \
-    creadortareas.ui
+    mainwindow.ui

@@ -36,8 +36,9 @@ public:
     QAction *actionNuevaCateg;
     QAction *actionNuevaEtiq;
     QAction *actionSalir;
-    QAction *actionEliminar;
-    QAction *actionEliminar_2;
+    QAction *actionEliminarTarea;
+    QAction *actionEliminarEtiqueta;
+    QAction *actionEliminarCategoria;
     QWidget *centralwidget;
     QVBoxLayout *verticalLayout_2;
     QGridLayout *gridLayout_3;
@@ -84,10 +85,12 @@ public:
         actionNuevaEtiq->setObjectName(QStringLiteral("actionNuevaEtiq"));
         actionSalir = new QAction(MainWindow);
         actionSalir->setObjectName(QStringLiteral("actionSalir"));
-        actionEliminar = new QAction(MainWindow);
-        actionEliminar->setObjectName(QStringLiteral("actionEliminar"));
-        actionEliminar_2 = new QAction(MainWindow);
-        actionEliminar_2->setObjectName(QStringLiteral("actionEliminar_2"));
+        actionEliminarTarea = new QAction(MainWindow);
+        actionEliminarTarea->setObjectName(QStringLiteral("actionEliminarTarea"));
+        actionEliminarEtiqueta = new QAction(MainWindow);
+        actionEliminarEtiqueta->setObjectName(QStringLiteral("actionEliminarEtiqueta"));
+        actionEliminarCategoria = new QAction(MainWindow);
+        actionEliminarCategoria->setObjectName(QStringLiteral("actionEliminarCategoria"));
         centralwidget = new QWidget(MainWindow);
         centralwidget->setObjectName(QStringLiteral("centralwidget"));
         verticalLayout_2 = new QVBoxLayout(centralwidget);
@@ -176,12 +179,17 @@ public:
 
         txtCategDescr = new QTextEdit(TabCategorias);
         txtCategDescr->setObjectName(QStringLiteral("txtCategDescr"));
+        QSizePolicy sizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
+        sizePolicy.setHorizontalStretch(0);
+        sizePolicy.setVerticalStretch(0);
+        sizePolicy.setHeightForWidth(txtCategDescr->sizePolicy().hasHeightForWidth());
+        txtCategDescr->setSizePolicy(sizePolicy);
         txtCategDescr->setMaximumSize(QSize(16777215, 200));
 
         gridLayout_2->addWidget(txtCategDescr, 1, 0, 1, 1);
 
 
-        gridLayout_4->addLayout(gridLayout_2, 0, 0, 1, 1);
+        gridLayout_4->addLayout(gridLayout_2, 0, 1, 1, 1);
 
         TabTareas->addTab(TabCategorias, QString());
         TabEtiquetas = new QWidget();
@@ -231,10 +239,11 @@ public:
         menubar->addAction(menuCategorias->menuAction());
         menubar->addAction(menuEtiquetas->menuAction());
         menuTareas->addAction(actionNuevaTarea);
-        menuTareas->addAction(actionEliminar);
+        menuTareas->addAction(actionEliminarTarea);
         menuCategorias->addAction(actionNuevaCateg);
+        menuCategorias->addAction(actionEliminarCategoria);
         menuEtiquetas->addAction(actionNuevaEtiq);
-        menuEtiquetas->addAction(actionEliminar_2);
+        menuEtiquetas->addAction(actionEliminarEtiqueta);
         menuArchivo->addAction(actionSalir);
 
         retranslateUi(MainWindow);
@@ -253,8 +262,9 @@ public:
         actionNuevaCateg->setText(QApplication::translate("MainWindow", "Nueva", 0));
         actionNuevaEtiq->setText(QApplication::translate("MainWindow", "Nueva", 0));
         actionSalir->setText(QApplication::translate("MainWindow", "Salir", 0));
-        actionEliminar->setText(QApplication::translate("MainWindow", "Eliminar", 0));
-        actionEliminar_2->setText(QApplication::translate("MainWindow", "Eliminar", 0));
+        actionEliminarTarea->setText(QApplication::translate("MainWindow", "Eliminar", 0));
+        actionEliminarEtiqueta->setText(QApplication::translate("MainWindow", "Eliminar", 0));
+        actionEliminarCategoria->setText(QApplication::translate("MainWindow", "Eliminar", 0));
         groupBox->setTitle(QApplication::translate("MainWindow", "Categoria", 0));
         groupBox_2->setTitle(QApplication::translate("MainWindow", "Etiqueta", 0));
         QTableWidgetItem *___qtablewidgetitem = tblTareas->horizontalHeaderItem(0);
